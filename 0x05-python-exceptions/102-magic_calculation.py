@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-def magic_calculation(a, b):
-    result = 0
-    for i in range(1, 3):
-        try:
-            if (i > a):
-                raise Exception("Too far")
-            else:
-                result += (a ** b) / i
-        except:
-            result = b + a
-            break
-    return (result)
+# 3-safe_print_division.py
+# Brennan D Baraban <375@holbertonschool.com>
+
+
+def safe_print_division(a, b):
+    """Returns the division of a by b."""
+    try:
+        div = a / b
+    except (TypeError, ZeroDivisionError):
+        div = None
+    finally:
+        print("Inside result: {}".format(div))
+    return (div)
